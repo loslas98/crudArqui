@@ -1,0 +1,35 @@
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+  <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+
+    <table class="table-fixed w-full">
+      <thead>
+        <tr class="bg-green-500 text-white">
+          <th class="w-20 py-4 ...">RUT</th>
+          <th class="w-1/4 py-4 ...">Nombre</th>
+          <th class="w-1/2 py-4 ...">Direccion</th>
+          <th class="w-1/2 py-4 ...">Sueldo</th>
+          <th class="w-28 py-4 ...">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each employees}}
+        <tr>
+          <td class="p-3 text-center">{{rut}}</td>
+          <td class="p-3 text-center">{{nombre}}</td>
+          <td class="p-3 text-center">{{direccion}}</td>
+          <td class="p-3 text-center">{{sueldo}}</td>
+          <td class="p-3 flex">
+            <form action="employees/delete" method="POST" class="mx-2">
+              <input type="hidden" value="{{rut}}" name="rut">
+              <button class="bg-red-500 text-white px-3 py-1 rounded-sm" type="submit">
+                <i class="fas fa-trash"></i></button>
+            </form>
+            <a href="employees/edit/{{rut}}" class="bg-green-500 text-white px-3 py-1 rounded-sm">
+              <i class="fas fa-pen"></i></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

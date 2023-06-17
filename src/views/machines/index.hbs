@@ -1,0 +1,39 @@
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+  <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+
+    <table class="table-fixed w-full">
+      <thead>
+        <tr class="bg-green-500 text-white">
+          <th class="w-20 py-4 ...">ID</th>
+          <th class="w-20 py-4 ...">Tipo</th>
+          <th class="w-1/4 py-4 ...">Marca</th>
+          <th class="w-1/2 py-4 ...">Modelo</th>
+          <th class="w-1/2 py-4 ...">rutTrabajador</th>
+          <th class="w-28 py-4 ...">Actions</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {{#each machines}}
+        <tr>
+          <td class="p-2 text-center">{{id}}</td>
+          <td class="p-2 text-center">{{tipo}}</td>
+          <td class="p-2 text-center">{{marca}}</td>
+          <td class="p-2 text-center">{{modelo}}</td>
+          <td class="p-2 text-center">{{trabajador_id}}</td>
+          <td class="p-3 flex"></td>
+          <td class="p-2 flex">
+            <form action="machines/delete" method="POST" class="mx-2">
+              <input type="hidden" value="{{id}}" name="id">
+              <button class="bg-red-500 text-white px-3 py-1 rounded-sm" type="submit">
+                <i class="fas fa-trash"></i></button>
+            </form>
+            <a href="machines/edit/{{id}}" class="bg-green-500 text-white px-3 py-1 rounded-sm">
+              <i class="fas fa-pen"></i></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
